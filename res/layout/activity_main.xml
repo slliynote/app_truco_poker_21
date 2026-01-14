@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:exported="true"
     tools:context=".MainActivity">
 
     <!-- Imagem de fundo -->
@@ -37,6 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
+            android:drawableLeft="@drawable/outline_calendar_month_24"
             android:text="Score In Game"
             app:cornerRadius="10dp"
             app:layout_constraintBottom_toTopOf="@+id/button3"
@@ -49,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
+            android:drawableLeft="@drawable/outline_gamepad_24"
             android:text="Start"
             app:cornerRadius="10dp"
             app:layout_constraintBottom_toTopOf="@+id/button"
@@ -61,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="185dp"
+            android:drawableLeft="@drawable/outline_family_star_24"
             android:text="Rank "
             app:cornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -72,6 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
+            android:layout_marginBottom="50dp"
             android:clickable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
