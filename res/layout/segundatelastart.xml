@@ -50,8 +50,48 @@
             android:scaleType="fitXY"
             android:src="@drawable/bitmap" />
 
+
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Carta 2 -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardCarta3"
+        android:layout_width="160dp"
+        android:layout_height="282dp"
+        android:layout_marginEnd="45dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardCarta2">
+
+        <ImageView
+            android:id="@+id/btnCarta3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/selecaoburaco" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardCarta4"
+        android:layout_width="160dp"
+        android:layout_height="282dp"
+        android:layout_marginStart="45dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardCarta1">
+
+        <ImageView
+            android:id="@+id/btnCarta4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/mamau" />
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
