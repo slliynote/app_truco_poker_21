@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="180dp"
+    android:layout_height="300dp"
+    android:layout_marginHorizontal="0dp"
+    android:layout_marginVertical="22dp"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="12dp">
+
+    <ImageView
+        android:id="@+id/imgCarta"
+        android:layout_width="190dp"
+        android:layout_height="290dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"/>
+
+</com.google.android.material.card.MaterialCardView>

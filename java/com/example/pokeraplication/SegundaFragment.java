@@ -1,21 +1,24 @@
 package com.example.pokeraplication;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.pokeraplication.Adapter.CartaAdapter;
+import com.example.pokeraplication.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SegundaFragment extends Fragment {
-
-    public SegundaFragment() {
-        // Construtor vazio obrigatório
-    }
 
     @Nullable
     @Override
@@ -24,18 +27,23 @@ public class SegundaFragment extends Fragment {
             @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState
     ) {
-        // Inflando o layout do Fragment
-        View root = inflater.inflate(R.layout.segundatelastart, container, false);
+        View view = inflater.inflate(R.layout.segundatelastart, container, false);
 
-        // Pegando a ImageView dentro do layout inflado
-        ImageView imgBotao = root.findViewById(R.id.btnCarta1);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerCartas);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
-        // Adicionando o clique
-        imgBotao.setOnClickListener(v -> {
-            Log.d("TESTE", "Imagem clicada");
-        });
+        // 🔥 LISTA DE CARTAS (adicione quantas quiser)
+        List<Integer> cartas = new ArrayList<>();
+        cartas.add(R.drawable.selecaotruco);
+        cartas.add(R.drawable.bitmap);
+        cartas.add(R.drawable.selecaoburaco);
+        cartas.add(R.drawable.mamau);
+        cartas.add(R.drawable.selecaosueca);
+        cartas.add(R.drawable.bitmark21);
 
-        // Retorna a view inflada
-        return root;
+        CartaAdapter adapter = new CartaAdapter(cartas);
+        recyclerView.setAdapter(adapter);
+
+        return view;
     }
 }
