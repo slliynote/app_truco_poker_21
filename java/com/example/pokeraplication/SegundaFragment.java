@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokeraplication.Adapter.CartaAdapter;
+import com.example.pokeraplication.Adapter.GridSpacingItemDecoration;
 import com.example.pokeraplication.R;
 
 import java.util.ArrayList;
@@ -43,6 +44,10 @@ public class SegundaFragment extends Fragment {
 
         CartaAdapter adapter = new CartaAdapter(cartas);
         recyclerView.setAdapter(adapter);
+
+        recyclerView.addItemDecoration(
+                new GridSpacingItemDecoration(2, 24, true)
+        );
 
         return view;
     }

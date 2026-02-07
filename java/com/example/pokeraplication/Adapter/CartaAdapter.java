@@ -49,7 +49,7 @@ public class CartaAdapter extends RecyclerView.Adapter<CartaAdapter.CartaViewHol
 
         public CartaViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgCarta = itemView.findViewById(R.id.imgCarta);
+            imgCarta = itemView.findViewById(R.id.imgCard);
         }
     }
 }

@@ -12,7 +12,7 @@
     app:cardElevation="12dp">
 
     <ImageView
-        android:id="@+id/imgCarta"
+        android:id="@+id/imgCard"
         android:layout_width="190dp"
         android:layout_height="290dp"
         android:adjustViewBounds="true"
