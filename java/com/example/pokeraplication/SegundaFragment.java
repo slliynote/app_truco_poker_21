@@ -41,14 +41,21 @@ public class SegundaFragment extends Fragment {
         cartas.add(R.drawable.mamau);
         cartas.add(R.drawable.selecaosueca);
         cartas.add(R.drawable.bitmark21);
+        cartas.add(R.drawable.pife);
+        cartas.add(R.drawable.roubamonte);
+
 
         CartaAdapter adapter = new CartaAdapter(cartas);
         recyclerView.setAdapter(adapter);
 
-        recyclerView.addItemDecoration(
-                new GridSpacingItemDecoration(2, 24, true)
+        int spacingDp = 12;
+        int spacingPx = Math.round(
+                spacingDp * getResources().getDisplayMetrics().density
         );
 
+        recyclerView.addItemDecoration(
+                new GridSpacingItemDecoration(2, spacingPx, false)
+        );
         return view;
     }
 }
