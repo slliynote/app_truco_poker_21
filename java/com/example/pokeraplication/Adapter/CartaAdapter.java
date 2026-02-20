@@ -35,7 +35,17 @@ public class CartaAdapter extends RecyclerView.Adapter<CartaAdapter.CartaViewHol
 
     @Override
     public void onBindViewHolder(@NonNull CartaViewHolder holder, int position) {
+
         holder.imgCarta.setImageResource(cartas.get(position));
+
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                int currentPosition = holder.getAdapterPosition();
+                if (currentPosition != RecyclerView.NO_POSITION) {
+                    listener.onCartaClick(v, cartas.get(currentPosition));
+                }
+            }
+        });
     }
 
     @Override
@@ -52,4 +62,15 @@ public class CartaAdapter extends RecyclerView.Adapter<CartaAdapter.CartaViewHol
             imgCarta = itemView.findViewById(R.id.imgCarta);
         }
     }
+
+    public interface OnCartaClickListener {
+        void onCartaClick(View view, int imageResId);
+    }
+
+    private OnCartaClickListener listener;
+
+    public void setOnCartaClickListener(OnCartaClickListener listener) {
+        this.listener = listener;
+    }
+
 }
