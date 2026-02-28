@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokeraplication.Adapter.CartaAdapter;
 import com.example.pokeraplication.Adapter.GridSpacingItemDecoration;
-import com.example.pokeraplication.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,7 +46,7 @@ public class SegundaFragment extends Fragment {
         cartas.add(R.drawable.selecaosueca);
         cartas.add(R.drawable.bitmark21);
         cartas.add(R.drawable.pife);
-        cartas.add(R.drawable.roubamonte);
+        cartas.add(R.drawable.roubamonte); // corrigido
 
         CartaAdapter adapter = new CartaAdapter(cartas);
         recyclerView.setAdapter(adapter);
@@ -110,29 +109,20 @@ public class SegundaFragment extends Fragment {
             }
 
             else if (imageResId == R.drawable.selecaosueca) {
-                opcoes = Arrays.asList(
-                        "Sueca"
-                );
+                opcoes = Arrays.asList("Sueca");
             }
 
             else if (imageResId == R.drawable.bitmark21) {
-                opcoes = Arrays.asList(
-                        "21 tradicional"
-                );
+                opcoes = Arrays.asList("21 tradicional");
             }
 
             else if (imageResId == R.drawable.pife) {
-                opcoes = Arrays.asList(
-                        "Pife"
-                );
+                opcoes = Arrays.asList("Pife");
             }
 
-            else if (imageResId == R.drawable.pife) {
-                opcoes = Arrays.asList(
-                        "Rouba-Monte"
-                );
+            else if (imageResId == R.drawable.roubamonte) {
+                opcoes = Arrays.asList("Rouba-Monte");
             }
-
 
             menu_variacoes(view1, opcoes);
         });
@@ -140,23 +130,13 @@ public class SegundaFragment extends Fragment {
         return view;
     }
 
-    // 🔥 MÉTODO DO MENU (AGORA EXISTE DE VERDADE)
+    // 🔥 MENU COM CLIQUE FUNCIONANDO
     private void menu_variacoes(View anchor, List<String> options) {
 
         LayoutInflater inflater = getLayoutInflater();
         View popupView = inflater.inflate(R.layout.menu_variacoes, null);
 
         LinearLayout container = popupView.findViewById(R.id.menuContainer);
-
-        for (String option : options) {
-            TextView item = new TextView(requireContext());
-            item.setText(option);
-            item.setPadding(40, 25, 40, 25);
-            item.setTextColor(Color.WHITE);
-            item.setTextSize(16f);
-
-            container.addView(item);
-        }
 
         PopupWindow popup = new PopupWindow(
                 popupView,
@@ -167,6 +147,38 @@ public class SegundaFragment extends Fragment {
 
         popup.setOutsideTouchable(true);
         popup.setElevation(12f);
+
+        for (String option : options) {
+
+            TextView item = new TextView(requireContext());
+            item.setText(option);
+            item.setPadding(40, 25, 40, 25);
+            item.setTextColor(Color.WHITE);
+            item.setTextSize(16f);
+            item.setClickable(true);
+            item.setFocusable(true);
+            item.setBackgroundResource(android.R.drawable.list_selector_background);
+
+            item.setOnClickListener(v -> {
+
+                popup.dismiss();
+
+                requireActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .setCustomAnimations(
+                                android.R.anim.slide_in_left,
+                                android.R.anim.slide_out_right,
+                                android.R.anim.slide_in_left,
+                                android.R.anim.slide_out_right
+                        )
+                        .replace(R.id.nav_host_fragment,
+                                GAMEBLANKFragment .newInstance(option))
+                        .addToBackStack(null)
+                        .commit();
+            });
+
+            container.addView(item);
+        }
 
         popupView.measure(
                 View.MeasureSpec.UNSPECIFIED,
