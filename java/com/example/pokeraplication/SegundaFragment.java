@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -68,7 +67,7 @@ public class SegundaFragment extends Fragment {
                 opcoes = Arrays.asList(
                         "Truco Mineiro",
                         "Truco Paulista",
-                        "Truco Gaúcho",
+                        "Truco Gaudérico",
                         "Truco Argentino",
                         "Truco Uruguaio",
                         "Truco Paranaense",
@@ -172,7 +171,7 @@ public class SegundaFragment extends Fragment {
                                 android.R.anim.slide_out_right
                         )
                         .replace(R.id.nav_host_fragment,
-                                GAMEBLANKFragment .newInstance(option))
+                                GameOnboardingFragment.newInstance(option))
                         .addToBackStack(null)
                         .commit();
             });
